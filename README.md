@@ -1,12 +1,4 @@
-Great! Below is an enhanced version of the `README.md` file that includes:
 
-* 🛡️ **Shields.io badges** (build status, license, C++)
-* ✅ Ready to publish on **GitHub Pages**
-* 📘 Clean and styled sections for documentation
-
----
-
-````markdown
 # 🔐 Crow JWT Auth API
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)](https://cmake.org/)
@@ -46,7 +38,7 @@ mkdir build && cd build
 cmake ..
 make
 ./main
-````
+```
 
 ---
 
