@@ -1,63 +1,47 @@
-Here’s a complete and professional `README.md` file for your **Crow C++ JWT Auth API** app:
+Great! Below is an enhanced version of the `README.md` file that includes:
+
+* 🛡️ **Shields.io badges** (build status, license, C++)
+* ✅ Ready to publish on **GitHub Pages**
+* 📘 Clean and styled sections for documentation
 
 ---
 
-```markdown
+````markdown
 # 🔐 Crow JWT Auth API
 
-A minimal C++ REST API built with [Crow](https://github.com/CrowCpp/Crow) that supports both **Basic Authentication** and **JWT-based authorization** to protect API resources.
+[![Build](https://img.shields.io/badge/build-passing-brightgreen)](https://cmake.org/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![C++17](https://img.shields.io/badge/C%2B%2B-17-blue)](https://en.cppreference.com/w/cpp/17)
+
+> A minimal C++ REST API built with [Crow](https://github.com/CrowCpp/Crow) that supports **Basic Auth** and **JWT** for secure access control.
 
 ---
 
-## 🚀 Features
+## 📦 Features
 
-- ✅ Basic Authentication via `Authorization: Basic <base64>`
-- 🔑 JWT Token issuance on successful login
-- 🔒 Protected route access via `Authorization: Bearer <token>`
-- ⌛ JWT expiration handling (default: 30 minutes)
-- 🔐 Password hashing using SHA-256
-- 🧪 API test script using `curl`
-
----
-
-## 🏗️ Project Structure
-
-```
-
-crow-jwt-auth/
-├── main.cpp            # Entry point of the server
-├── jwt\_utils.h         # JWT token generation and verification
-├── basic\_auth.h        # Basic Auth header parsing and password hashing
-├── test\_api.sh         # Bash script to test login & protected route
-├── CMakeLists.txt      # Build configuration
-└── crow/ & jwt-cpp/    # Dependencies (Crow and jwt-cpp as submodules or folders)
-
-````
+- 🔐 Basic Authentication (`Authorization: Basic`)
+- 📤 JWT Token issuance
+- 🔒 JWT-Protected endpoints
+- 🔑 Password hashing via SHA-256
+- ✅ Ready-to-use testing script
+- 🧰 Built with C++17 + Crow + jwt-cpp
 
 ---
 
-## 🧰 Requirements
+## 🚀 Quick Start
 
-- C++17+
-- CMake 3.10+
-- Crow (header-only or cloned submodule)
-- [jwt-cpp](https://github.com/Thalhammer/jwt-cpp)
-- OpenSSL (for SHA-256)
-
----
-
-## 🔧 Setup & Build
+### 🔧 Setup
 
 ```bash
-# Clone the repo and enter it
+# Clone this repo
 git clone https://github.com/yourusername/crow-jwt-auth.git
 cd crow-jwt-auth
 
-# Clone dependencies
+# Clone required libraries
 git clone https://github.com/CrowCpp/Crow.git crow
 git clone https://github.com/Thalhammer/jwt-cpp.git jwt-cpp
 
-# Build
+# Build the app
 mkdir build && cd build
 cmake ..
 make
@@ -66,48 +50,31 @@ make
 
 ---
 
-## 🔐 JWT Secret
+## 🔐 Setting JWT Secret
 
-Set a secure secret key before starting the app:
+Set your secret key as an environment variable:
 
 ```bash
 export JWT_SECRET=$(openssl rand -base64 32)
 ```
 
-The secret is used for signing and verifying JWT tokens.
+This secret is used to sign and verify JWT tokens.
 
 ---
 
-## 🧪 Testing the API
+## 🔑 API Endpoints
 
-Run the included test script:
+### 🔓 `GET /login`
 
-```bash
-./test_api.sh
-```
+Authenticate using Basic Auth and receive a JWT.
 
-It will:
-
-* Login with basic auth
-* Extract the JWT
-* Use it to access the protected route
-* Test invalid scenarios
-
----
-
-## 📬 API Endpoints
-
-### `GET /login`
-
-> Logs in using Basic Auth and returns a JWT
-
-**Headers:**
+**Request Header:**
 
 ```
 Authorization: Basic base64(username:password)
 ```
 
-**Response:**
+**Success Response:**
 
 ```json
 {
@@ -117,17 +84,17 @@ Authorization: Basic base64(username:password)
 
 ---
 
-### `GET /protected`
+### 🔒 `GET /protected`
 
-> Access protected resource using a Bearer token
+Access protected resources with a Bearer token.
 
-**Headers:**
+**Request Header:**
 
 ```
 Authorization: Bearer <JWT>
 ```
 
-**Response:**
+**Success Response:**
 
 ```
 Hello, <username>! Welcome to the protected resource.
@@ -135,21 +102,66 @@ Hello, <username>! Welcome to the protected resource.
 
 ---
 
-## 🔒 Security Notes
+## 🧪 Run Tests
 
-* Replace SHA-256 with bcrypt/argon2 for production password hashing.
-* Store JWT secret securely (not hardcoded).
-* Set proper expiration time and enforce refresh policies.
+A full `curl` test script is included:
+
+```bash
+chmod +x test_api.sh
+./test_api.sh
+```
+
+Covers:
+
+* ✅ Successful login
+* 🔒 Protected access
+* 🚫 Failed login
+* 🚫 Invalid token test
 
 ---
 
-## 📃 License
+## 🛠 Tech Stack
 
-MIT © \[Your Name]
+* **C++17**
+* [Crow](https://github.com/CrowCpp/Crow) - C++ micro web framework
+* [jwt-cpp](https://github.com/Thalhammer/jwt-cpp) - JSON Web Token for C++
+* OpenSSL - used for SHA-256 password hashing
+
+---
+
+## ⚠️ Security Notes
+
+* Replace SHA-256 with bcrypt or Argon2 in production
+* Never hardcode secrets – use secure env management
+* Consider rate limiting and HTTPS in production
+
+---
+
+## 📄 License
+
+MIT License • © \[Your Name]
+
+---
+
+## 🌐 GitHub Pages Docs (Optional)
+
+To enable GitHub Pages:
+
+1. Create a `docs/` folder.
+2. Add a copy of this `README.md` as `index.md`.
+3. Enable GitHub Pages under repository settings pointing to `main/docs`.
+
+---
+
+## 🙋‍♂️ Contributions
+
+PRs are welcome! If you find issues or want to improve security/hashing/token scopes, feel free to open a PR.
+
+---
 
 ```
 
 ---
 
-Would you like me to add badges (build, version, license) or convert this to a GitHub Pages-style doc?
+Would you like me to generate a `docs/index.md` for GitHub Pages right now too?
 ```
